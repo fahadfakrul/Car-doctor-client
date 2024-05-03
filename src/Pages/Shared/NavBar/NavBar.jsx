@@ -55,7 +55,7 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1 font-semibold text-lg">{navItems}</ul>
       </div>
       <div className="navbar-end">
-      <button className="btn btn-outline text-[#FF3811]  font-semibold text-lg">Appointment</button>
+      <button className="btn btn-outline hover:bg-[#FF3811] hover:border-none text-[#FF3811]  font-semibold text-lg">Appointment</button>
       </div>
     </div>
   );
