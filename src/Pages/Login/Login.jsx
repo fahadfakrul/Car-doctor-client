@@ -1,10 +1,23 @@
+import { Link } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
+import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/Authproviders';
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext);
     const handleLogin = event => {
         event.preventDefault()
-        console.log(event.target.email.value)
-        console.log(event.target.password.value)
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.log(error))
     }
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -23,6 +36,7 @@ const Login = () => {
               </label>
               <input
                 type="email"
+                name='email'
                 placeholder="email"
                 className="input input-bordered "
                 required
@@ -34,6 +48,7 @@ const Login = () => {
               </label>
               <input
                 type="password"
+                name='password'
                 placeholder="password"
                 className="input input-bordered"
                 required
@@ -48,6 +63,14 @@ const Login = () => {
               <input className="btn bg-[#FF3811] text-white text-xl font-semibold" type="submit" value="Login" />
             </div>
            </form>
+           <div className='mt-7'>
+           <p className='text-[#444]  text-center'>Or Sign In With</p>
+            <div className='flex justify-center gap-4 mt-7 '>
+            <button className="btn btn-circle hover:bg-[#FF3811] hover:text-white"><FaFacebookF /></button>
+            <button className="btn btn-circle hover:bg-[#FF3811] hover:text-white "><FaGoogle /></button>
+            </div>
+           </div>
+           <p className='text-[#444] my-8'>New to Car Doctor? <Link className='font-blod text-[#FF3811] hover:underline' to='/signup'>Sign Up</Link></p>
           </div>
         </div>
       </div>
