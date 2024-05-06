@@ -19,7 +19,7 @@ const NavBar = () => {
         <Link to="/about">About</Link>
       </li>
       <li>
-        <Link to="/services">Services</Link>
+        <Link to="/services ">Services</Link>
       </li>
       <li>
         <Link to="/blog">Blog</Link>
@@ -27,6 +27,7 @@ const NavBar = () => {
       <li>
         <Link to="/contact">Contact</Link>
       </li>
+      {user?.email ? <li><Link to="/bookings">My Bookings</Link> </li>: <li></li>}
     </>
   );
   return (
@@ -63,7 +64,7 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-semibold text-lg">{navItems}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-2">
         {user?.email ? <button className="btn  bg-[#FF3811] text-white  font-semibold text-lg" onClick={handleLogout}>Log Out</button>:<Link to="/login" className="btn  bg-[#FF3811] text-white  font-semibold text-lg">Sign In</Link> }
       <button className="btn btn-outline hover:bg-[#FF3811] hover:border-none text-[#FF3811]  font-semibold text-lg">Appointment</button>
       </div>
