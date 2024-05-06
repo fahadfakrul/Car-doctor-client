@@ -32,7 +32,7 @@ const Bookings = () => {
           if(data.deletedCount > 0){
             alert("Booking deleted successfully");
             const remaining = bookings.filter(booking => booking._id !== id);
-            setbookings(remaining);
+            setBookings(remaining);
           }
         });
     }
@@ -57,7 +57,7 @@ const Bookings = () => {
             const  updated = bookings.find(booking => booking._id === id);
             updated.status = "confirmed";
             const newBookings=[updated, ...remaining];
-            setbookings(newBookings);
+            setBookings(newBookings);
         }
     });
   }
